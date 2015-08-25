@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings xml:lang="en" xmlns="http://www.w3.org/WAI/GL/WCAG20/sources/">
+	<!-- Technique Headers -->
+	<string key="technique.header.description">Description</string>
+	<string key="technique.header.applicability">Applicability</string>
+	<string key="technique.header.examples">Examples</string>
+	<string key="technique.header.tests">Tests</string>
+	<string key="technique.header.test-procedure">Test Procedure</string>
+	<string key="technique.header.test-results">Expected Results</string>
+	<string key="technique.header.toc">On This Page</string>
+	<string key="technique.header.related">Related Techniques</string>
+	<string key=""></string>
+	<string key=""></string>
+	<string key=""></string>
+	<string key=""></string>
+	<string key=""></string>
+</strings>
