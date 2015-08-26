@@ -97,7 +97,7 @@
 		<xsl:variable name="id">
 			<xsl:call-template name="tech-id"/>
 		</xsl:variable>
-		<xsl:apply-templates select="$understanding.doc//loc[@href = $id]" mode="sc-references"/>
+		<xsl:apply-templates select="$understanding.doc//loc[@href = $id][ancestor::div3/@role = 'techniques']" mode="sc-references"/>
 	</xsl:template>
 	
 	<xsl:template match="loc" mode="sc-references">
@@ -117,7 +117,7 @@
 			<xsl:call-template name="tech-sufficiency"/>
 		</xsl:variable>
 		<li>
-			<a href="{$sc-link}"><xsl:value-of select="$sc-num"/> <xsl:value-of select="$sc-handle"/>: <xsl:value-of select="$sc-text"/> (<xsl:value-of select="wcag:string(concat('tech.sufficiency.', $tech-sufficiency))"/>)</a>
+			<a href="{$sc-link}"><xsl:value-of select="$sc-num"/> <xsl:value-of select="$sc-handle"/>: <xsl:value-of select="$sc-text"/> (<xsl:value-of select="wcag:string(concat('technique.sufficiency.', $tech-sufficiency))"/>)</a>
 		</li>
 	</xsl:template>
 	
@@ -146,6 +146,9 @@
 			<xsl:when test="$el/ancestor-or-self::div4/@role = 'sufficient'">sufficient</xsl:when>
 			<xsl:when test="$el/ancestor-or-self::div4/@role = 'tech-optional'">advisory</xsl:when>
 			<xsl:when test="$el/ancestor-or-self::div4/@role = 'failures'">failure</xsl:when>
+			<xsl:otherwise>
+				<xsl:message>Looking for technique sufficiency found <xsl:value-of select="$el/ancestor-or-self::div4/@role"/></xsl:message>
+			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 	
