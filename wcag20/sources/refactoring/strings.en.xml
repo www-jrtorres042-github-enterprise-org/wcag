@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<strings xml:lang="en" xmlns="http://www.w3.org/WAI/GL/WCAG20/sources/">
+<strings xml:lang="en">
 	<!-- Technique Headers -->
 	<string key="technique.header.description">Description</string>
 	<string key="technique.header.applicability">Applicability</string>

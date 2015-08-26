@@ -4,7 +4,6 @@
 	xmlns:wcag="http://www.w3.org/WAI/GL/WCAG20/sources/"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xpath-default-namespace="http://www.w3.org/1999/xhtml"
 	exclude-result-prefixes="#all"
 	version="2.0">
 	
@@ -13,10 +12,10 @@
 	<xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
 	
 	<xsl:template match="/">
-		<xsl:apply-templates select="html/body"/>
+		<xsl:apply-templates select="html:html/html:body"/>
 	</xsl:template>
 	
-	<xsl:template match="body">
+	<xsl:template match="html:body">
 		<xsl:text disable-output-escaping='yes'>&lt;!DOCTYPE html&gt;&#10;</xsl:text>
 		<html lang="{$lang}">
 			<head>
@@ -46,17 +45,17 @@
 					</xsl:element>
 					<p><xsl:value-of select="wcag:string('technique.disclaimer')"/></p>
 				</section>
-				<xsl:apply-templates select="section[@class = 'applicability']"/>
-				<xsl:apply-templates select="section[@class = 'description']"/>
-				<xsl:apply-templates select="section[@class = 'examples']"/>
-				<xsl:apply-templates select="section[@class = 'related']"/>
-				<xsl:apply-templates select="section[@class = 'tests']"/>
+				<xsl:apply-templates select="html:section[@class = 'applicability']"/>
+				<xsl:apply-templates select="html:section[@class = 'description']"/>
+				<xsl:apply-templates select="html:section[@class = 'examples']"/>
+				<xsl:apply-templates select="html:section[@class = 'related']"/>
+				<xsl:apply-templates select="html:section[@class = 'tests']"/>
 				<xsl:call-template name="footer"/>
 			</body>
 		</html>
 	</xsl:template>
 	
-	<xsl:template match="section">
+	<xsl:template match="html:section">
 		<xsl:variable name="string.header">
 			<xsl:text>technique.header.</xsl:text>
 			<xsl:value-of select="@class"/>
@@ -84,14 +83,14 @@
 		</xsl:copy>
 	</xsl:template>
 	
-	<xsl:template match="h1 | h2 | h3 | h4 | h5 | h6"/>
+	<xsl:template match="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>
 	
-	<xsl:template match="section" mode="toc">
+	<xsl:template match="html:section" mode="toc">
 		<li><a href="#{@class}"><xsl:value-of select="wcag:string(concat('technique.header.', @class))"/></a></li>
 	</xsl:template>
 	
 	<xsl:template name="title">
-		<xsl:value-of select="//h1[1]"/>
+		<xsl:value-of select="//html:h1[1]"/>
 	</xsl:template>
 	
 	<xsl:template name="sc-references">
@@ -151,15 +150,15 @@
 	</xsl:template>
 	
 	<xsl:template name="tech-id">
-		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'id'], ':'))"/>
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::html:body/html:section[@class = 'meta']/html:p[@class = 'id'], ':'))"/>
 	</xsl:template>
 	
 	<xsl:template name="tech-technology">
-		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'technology'], ':'))"/>
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::html:body/html:section[@class = 'meta']/html:p[@class = 'technology'], ':'))"/>
 	</xsl:template>
 	
 	<xsl:template name="tech-type">
-		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'type'], ':'))"/>
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::html:body/html:section[@class = 'meta']/html:p[@class = 'type'], ':'))"/>
 	</xsl:template>
 	
 	<xsl:template name="header">
@@ -176,7 +175,7 @@
 			<p>On this page</p>
 			<ul id="navbar">
 				<li><a href="#disclaimer"><xsl:value-of select="wcag:string('technique.header.disclaimer')"/></a></li>
-				<xsl:apply-templates select="section[@class = 'applicability'], section[@class = 'description'], section[@class = 'examples'], section[@class = 'related'], section[@class = 'tests']" mode="toc"/>
+				<xsl:apply-templates select="html:section[@class = 'applicability'], html:section[@class = 'description'], html:section[@class = 'examples'], html:section[@class = 'related'], html:section[@class = 'tests']" mode="toc"/>
 			</ul>
 		</div>
 		<div class="skiptarget">

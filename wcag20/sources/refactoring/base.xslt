@@ -4,7 +4,6 @@
 	xmlns:wcag="http://www.w3.org/WAI/GL/WCAG20/sources/"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xpath-default-namespace="http://www.w3.org/1999/xhtml"
 	exclude-result-prefixes="#all"
 	version="2.0">
 	
@@ -25,7 +24,7 @@
 	<xsl:variable name="doc" select="/"/>
 	
 	<!-- Define a key for the strings doc. -->
-	<xsl:key name="strings" match="wcag:string" use="@key"/>
+	<xsl:key name="strings" match="string" use="@key"/>
 	
 	<!-- Look up a value from the localized strings file. -->
 	<xsl:function name="wcag:string">
@@ -69,13 +68,13 @@
 	<!-- Get an element by id. This is needed because HTML 5 doesn't use a DTD so doesn't recognize the id attribute as an XML id. -->
 	<xsl:function name="wcag:id">
 		<xsl:param name="id"/>
-		<xsl:copy-of select="$doc//*[@id = $id]"/>
+		<xsl:copy-of select="$doc//html:*[@id = $id]"/>
 	</xsl:function>
 	
 	<!-- Get an element by class name. -->
 	<xsl:function name="wcag:class">
 		<xsl:param name="class"/>
-		<xsl:copy-of select="$doc//*[@class = $class]"/>
+		<xsl:copy-of select="$doc//html:*[@class = $class]"/>
 	</xsl:function>
 	
 	<!-- Give the proper heading tag for the nesting level -->
@@ -83,11 +82,11 @@
 		<xsl:param name="el" select="."/>
 		<xsl:param name="adjustment">0</xsl:param>
 		<xsl:text>h</xsl:text>
-		<xsl:value-of select="count($el/ancestor-or-self::section) + count($el/ancestor-or-self::body) + $adjustment"/>
+		<xsl:value-of select="count($el/ancestor-or-self::html:section) + count($el/ancestor-or-self::html:body) + $adjustment"/>
 	</xsl:template>
 	
 	<!-- Don't output template instructions. -->
-	<xsl:template match="*[@class = 'instructions']"/>
+	<xsl:template match="html:*[@class = 'instructions']"/>
 	
 	<!-- Basic "copy it if no other actions defined" template. -->
 	<xsl:template match="node()|@*">
