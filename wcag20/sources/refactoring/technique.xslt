@@ -34,6 +34,7 @@
 				<xsl:element name="{$header}">
 					<xsl:call-template name="title"/>
 				</xsl:element>
+				<p><xsl:call-template name="tech-id"/>: <xsl:call-template name="tech-type"/> for <xsl:call-template name="tech-technology"/></p>
 				<section>
 					<xsl:variable name="header">
 						<xsl:call-template name="wcag:header">
@@ -45,7 +46,11 @@
 					</xsl:element>
 					<p><xsl:value-of select="wcag:string('technique.disclaimer')"/></p>
 				</section>
-				<xsl:apply-templates select="section"/>
+				<xsl:apply-templates select="section[@class = 'applicability']"/>
+				<xsl:apply-templates select="section[@class = 'description']"/>
+				<xsl:apply-templates select="section[@class = 'examples']"/>
+				<xsl:apply-templates select="section[@class = 'related']"/>
+				<xsl:apply-templates select="section[@class = 'tests']"/>
 				<xsl:call-template name="footer"/>
 			</body>
 		</html>
@@ -54,9 +59,14 @@
 	<xsl:template match="section">
 		<xsl:variable name="string.header">
 			<xsl:text>technique.header.</xsl:text>
-			<xsl:value-of select="@id"/>
+			<xsl:value-of select="@class"/>
 		</xsl:variable>
 		<xsl:copy>
+			<xsl:if test="not(@id) and @class">
+				<xsl:attribute name="id">
+					<xsl:value-of select="@class"/>
+				</xsl:attribute>
+			</xsl:if>
 			<xsl:apply-templates select="@*"/>
 			<xsl:variable name="header">
 				<xsl:call-template name="wcag:header"/>
@@ -65,17 +75,91 @@
 				<xsl:value-of select="wcag:string($string.header)"/>
 			</xsl:element>
 			<xsl:apply-templates/>
+			<xsl:if test="@class = 'applicability'">
+				<p>This technique relates to:</p>
+				<ul>
+					<xsl:call-template name="sc-references"/>
+				</ul>
+			</xsl:if>
 		</xsl:copy>
 	</xsl:template>
 	
 	<xsl:template match="h1 | h2 | h3 | h4 | h5 | h6"/>
 	
 	<xsl:template match="section" mode="toc">
-		<li><a href="#{@id}"><xsl:value-of select="wcag:string(concat('technique.header.', @id))"/></a></li>
+		<li><a href="#{@class}"><xsl:value-of select="wcag:string(concat('technique.header.', @class))"/></a></li>
 	</xsl:template>
 	
 	<xsl:template name="title">
 		<xsl:value-of select="//h1[1]"/>
+	</xsl:template>
+	
+	<xsl:template name="sc-references">
+		<xsl:variable name="id">
+			<xsl:call-template name="tech-id"/>
+		</xsl:variable>
+		<xsl:apply-templates select="$understanding.doc//loc[@href = $id]" mode="sc-references"/>
+	</xsl:template>
+	
+	<xsl:template match="loc" mode="sc-references">
+		<xsl:variable name="sc-link">
+			<xsl:call-template name="sc-link"/>
+		</xsl:variable>
+		<xsl:variable name="sc-num">
+			<xsl:call-template name="sc-num"/>
+		</xsl:variable>
+		<xsl:variable name="sc-handle">
+			<xsl:call-template name="sc-handle"/>
+		</xsl:variable>
+		<xsl:variable name="sc-text">
+			<xsl:call-template name="sc-text"/>
+		</xsl:variable>
+		<xsl:variable name="tech-sufficiency">
+			<xsl:call-template name="tech-sufficiency"/>
+		</xsl:variable>
+		<li>
+			<a href="{$sc-link}"><xsl:value-of select="$sc-num"/> <xsl:value-of select="$sc-handle"/>: <xsl:value-of select="$sc-text"/> (<xsl:value-of select="wcag:string(concat('tech.sufficiency.', $tech-sufficiency))"/>)</a>
+		</li>
+	</xsl:template>
+	
+	<xsl:template name="sc-link">
+		<xsl:param name="el" select="."/>
+		<xsl:text>../</xsl:text>
+		<xsl:value-of select="$el/ancestor-or-self::div2/@id"/>
+	</xsl:template>
+	
+	<xsl:template name="sc-num">
+		<xsl:param name="el" select="."/>
+		<xsl:value-of select="$el/ancestor-or-self::div2/head"/>
+	</xsl:template>
+	
+	<xsl:template name="sc-handle">
+		<xsl:text>@@</xsl:text>
+	</xsl:template>
+	
+	<xsl:template name="sc-text">
+		<xsl:text>@@</xsl:text>
+	</xsl:template>
+	
+	<xsl:template name="tech-sufficiency">
+		<xsl:param name="el" select="."/>
+		<xsl:choose>
+			<xsl:when test="$el/ancestor-or-self::div4/@role = 'sufficient'">sufficient</xsl:when>
+			<xsl:when test="$el/ancestor-or-self::div4/@role = 'tech-optional'">advisory</xsl:when>
+			<xsl:when test="$el/ancestor-or-self::div4/@role = 'failures'">failure</xsl:when>
+		</xsl:choose>
+	</xsl:template>
+	
+	<xsl:template name="tech-id">
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'id'], ':'))"/>
+	</xsl:template>
+	
+	<xsl:template name="tech-technology">
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'technology'], ':'))"/>
+	</xsl:template>
+	
+	<xsl:template name="tech-type">
+		<xsl:value-of select="normalize-space(substring-after(ancestor-or-self::body/section[@class = 'meta']/p[@class = 'type'], ':'))"/>
 	</xsl:template>
 	
 	<xsl:template name="header">
@@ -84,7 +168,7 @@
 			<p class="collectiontitle"><a href="./">Techniques for WCAG 2.0</a></p>
 		</div>
 		<div id="skipnav"><p class="skipnav"><a href="#maincontent">Skip to Content (Press Enter)</a></p></div>
-		<a name="top">&#x200B;</a>
+		<a id="top">&#x200B;</a>
 		<ul id="navigation">
 			<xsl:call-template name="navigation"/>
 		</ul>
@@ -92,7 +176,7 @@
 			<p>On this page</p>
 			<ul id="navbar">
 				<li><a href="#disclaimer"><xsl:value-of select="wcag:string('technique.header.disclaimer')"/></a></li>
-				<xsl:apply-templates select="wcag:id('applicability'), wcag:id('description'), wcag:id('examples'), wcag:id('related'), wcag:id('tests')" mode="toc"/>
+				<xsl:apply-templates select="section[@class = 'applicability'], section[@class = 'description'], section[@class = 'examples'], section[@class = 'related'], section[@class = 'tests']" mode="toc"/>
 			</ul>
 		</div>
 		<div class="skiptarget">

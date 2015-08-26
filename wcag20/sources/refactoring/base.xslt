@@ -14,9 +14,13 @@
 	<xsl:param name="strings.file">strings.<xsl:value-of select="$lang"/>.xml</xsl:param>
 	<!-- Identify the publication date -->
 	<xsl:param name="pubdate" select="current-date()"/>
+	<!-- Locate the Understanding file -->
+	<xsl:param name="understanding.file">../guide-to-wcag2-src.xml</xsl:param>
 	
-	<!-- Load the strings file. -->
+	<!-- Load the strings doc. -->
 	<xsl:variable name="strings.doc" select="document($strings.file)"/>
+	<!-- Load the Understanding doc. -->
+	<xsl:variable name="understanding.doc" select="document($understanding.file)"/>
 	<!-- Set the root element as the default context doc so functions can look in it. -->
 	<xsl:variable name="doc" select="/"/>
 	
@@ -80,7 +84,6 @@
 		<xsl:param name="adjustment">0</xsl:param>
 		<xsl:text>h</xsl:text>
 		<xsl:value-of select="count($el/ancestor-or-self::section) + count($el/ancestor-or-self::body) + $adjustment"/>
-		<xsl:message><xsl:value-of select="count($el/ancestor-or-self::section) + count($el/ancestor-or-self::body)"></xsl:value-of></xsl:message>
 	</xsl:template>
 	
 	<!-- Don't output template instructions. -->
