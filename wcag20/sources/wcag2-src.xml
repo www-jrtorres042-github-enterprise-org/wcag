@@ -7,11 +7,11 @@
     <w3c-designation>WCAG20</w3c-designation>
     <w3c-doctype>W3C Recommendation</w3c-doctype>
     <pubdate>
-        <month>June</month>
-        <year>2010</year>
+        <month>October</month>
+        <year>2015</year>
     </pubdate>
     <publoc>
-    	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/</loc>
+    	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20151006/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20151006/</loc>
     </publoc>
     <altlocs>
     	<loc href="Overview-diff.html">Single file diff-marked version showing revisions since 11 December 2008</loc>
@@ -21,22 +21,30 @@
       <loc href="http://www.w3.org/WAI/GL/WCAG20/">http://www.w3.org/WAI/GL/WCAG20/</loc>
     </latestloc>
     <prevlocs>
-    	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100128/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100128/</loc>
+    	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/</loc>
     </prevlocs>
     <authlist>
-      <author role="current">
-        <name>Ben Caldwell</name>
-        <affiliation>Trace R&amp;D Center, University of Wisconsin-Madison</affiliation>
-      </author>
       <author role="current">
         <name>Michael Cooper</name>
         <affiliation>W3C</affiliation>
       </author>
       <author role="current">
+        <name>Andrew Kirkpatrick</name>
+        <affiliation>Adobe</affiliation>
+      </author>
+      <author role="current">
+        <name>Joshue O Connor</name>
+        <affiliation>Invited Expert</affiliation>
+      </author>
+      <author role="past">
+        <name>Ben Caldwell</name>
+        <affiliation>Trace R&amp;D Center, University of Wisconsin-Madison</affiliation>
+      </author>
+      <author role="past">
         <name>Loretta Guarino Reid</name>
         <affiliation>Google, Inc.</affiliation>
       </author>
-      <author role="current">
+      <author role="past">
         <name>Gregg Vanderheiden</name>
         <affiliation>Trace R&amp;D Center, University of Wisconsin-Madison</affiliation>
       </author>
@@ -93,7 +101,7 @@
   		<p>This document has been produced as part of the W3C <loc
   			href="http://www.w3.org/WAI/">Web Accessibility Initiative</loc> (WAI). The
   			goals of the WCAG Working Group are discussed in the <loc
-  				href="http://www.w3.org/WAI/GL/2010/06/charter">WCAG Working Group
+  			  href="http://www.w3.org/2015/09/wcag-charter">WCAG Working Group
   				charter</loc>. The WCAG Working Group is part of the <loc
   					href="http://www.w3.org/WAI/Technical/Activity">WAI Technical
   					Activity</loc>.</p>
@@ -1577,7 +1585,7 @@ and operating content do not rely solely on sensory characteristics of component
             </note>
             <example>
               <p>In English, "spilling the beans" means "revealing a secret." However, "knocking over the beans" or "spilling the vegetables" does not mean the same thing.</p>
-              <p>In Japanese, the phrase "<phrase xml:lang="jp">さじを投げる</phrase>" literally translates into "he throws a spoon," but it means that there is nothing he can do and finally he gives up.
+              <p>In Japanese, the phrase "<phrase xml:lang="ja">さじを投げる</phrase>" literally translates into "he throws a spoon," but it means that there is nothing he can do and finally he gives up.
                 
               </p>
               <p>In Dutch, "<phrase xml:lang="nl" diff="chg">Hij ging met de kippen op stok</phrase>" literally translates into "He went to roost with the chickens," but it means that he went to bed early.</p>
@@ -1693,7 +1701,7 @@ and operating content do not rely solely on sensory characteristics of component
         </gitem><gitem id="livedef">
           <label>live</label>
           <def><p>information captured from a real-world event and transmitted to the receiver with no more than a broadcast delay</p>
-            <note><p>A broadcast delay is a short (usually automated) delay, for example used in order to give the broadcaster time to queue or censor the audio (or video) feed, but not sufficient to allow significant editing.</p>
+            <note><p>A broadcast delay is a short (usually automated) delay, for example used in order to give the broadcaster time to <phrase diff="chg">cue</phrase> or censor the audio (or video) feed, but not sufficient to allow significant editing.</p>
               <p>If information is completely computer generated, it is not live.</p></note></def>
         </gitem>
         
