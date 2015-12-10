@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>WCAG 2.0 Technique</title>
+		<link rel="stylesheet" type="text/css" href="sources.css"/>
+	</head>
+	<body>
+		<h1>Combining adjacent image and text links for the same resource</h1>
+		<section class="meta">
+			<h2>Metadata</h2>
+			<p class="id">ID: H2</p>
+			<p class="technology">Technology: HTML</p>
+			<p class="type">Type: Technique</p>
+		</section>
+		<section class="applicability">
+			<h2>When to Use</h2>
+			<p class="instructions">Describe the situations in which to use the technique, such as types of pages, features in use that might use the technique, etc.</p>
+			<p>HTML4, HTML5, and XHTML documents that contain links.</p>
+		</section>
+		<section class="description">
+			<h2>Description</h2>
+			<p class="instructions">Describe how the technique works. This begins with a description of the problem the technique solves, then describes how to apply the technique. The description should be detailed enough to provide all the information a reader needs to be able to apply the technique, without recourse to following example code.</p>
+			<p>This objective of this technique is to provide both text and iconic representations of links without making the web page more confusing or difficult for keyboard users or assistive technology users. Since different users finding text and icons more usable, providing both can improve the accessibility of the link.</p>
+			<p>Many links have both a text and iconic representation adjacent to each other, but rendered in separate <el>a</el> elements. Visually they appear to be a single link, but many users encounter them as adjacent identical links. For a keyboard user, it is tedious to navigate through redundant links. For users of assistive technologies, it can be confusing to encounter successive identical links. When the text alternative for the icon is a duplicate of the link text, it is repetitive as screen readers read the description twice.</p> 
+			<p>If the author omitted alternative text from the link image, it would fail <a href="text-equiv-all">Success Criterion 1.1.1</a> because the
+				text alternative would not serve the same purpose as the graphical link.</p> 
+			<p>This technique provides such links by putting the text and image together in one <code class="el">a</code> element and providing null alternative text on the image to eliminate duplication of text. In this way, both representations of the link are provided, but keyboard users only encounter one link and assistive technology that provides users with link lists for a web page do not include duplicate links.</p>
+			<p>Sometimes the text and the icon link are rendered in separate, adjacent table cells to
+				facilitate page layout. Although WCAG 2 does not prohibit the use of layout tables,
+				CSS-based layouts are recommended in order to retain the defined semantic meaning of the
+				HTML table elements and to conform to the coding practice of separating presentation
+				from content. If CSS is used, this technique can be applied to combine the links.</p>
+		</section>
+		<section id="examples">
+			<h2>Examples</h2>
+			<p class="instructions">Copy the following section for each example. Examples must have a title and a description, and usually have a code sample. Code samples should be elided if necessary to show the core of the technique without necessarily providing all the surrounding code that would also be involved. A working example link references a location where the technique can be shown working live.</p>
+			<section class="example">
+				<h3>Example Title</h3>
+				<p>The icon and text are contained in the same <el>a</el> element. (HTML4 / HTML5)</p>
+				<code><![CDATA[ <a href="products.html">
+   <img src="icon.gif" alt="">
+   Products page
+ </a>      ]]></code>
+				<p>Working example: link</p>
+			</section>
+			<section class="example">
+				<h3>Example Title</h3>
+				<p>A link contains an icon and text, and the site help refers to the icon. The
+					<code class="el">img</code> has a text alternative which is the name used for the icon in the
+					site help, which describes clicking the home page icon. (HTML4 / HTML5)</p>
+				<code><![CDATA[<a href="home.html">
+  <img src="house.gif" alt="home page icon">
+  Go to the home page
+</a>     ]]></code>
+				<p>Working example: link</p>
+			</section>
+		</section>
+		<section class="tests">
+			<h2>Tests</h2>
+			<section class="test-procedure">
+				<h3>Procedure</h3>
+				<p>For each <code class="el">a</code> applying this technique:</p>
+				<ol>
+					<li>Check that the <code class="el">a</code> element contains an <code class="el">img</code> element that has either a null <code class="att">alt</code> attribute value or a value that supplements the link text and describes the image</li>
+				</ol>
+			</section>
+			<section class="test-results">
+				<h3>Expected Results</h3>
+				<ul>
+					<li>All checks above are true.</li>
+				</ul>
+			</section>
+		</section>
+		<section class="related">
+			<h2>Related Techniques</h2>
+			<ul>
+				<li>G91</li>
+				<li>G94</li>
+				<li>H30</li>
+				<li>C9</li>
+				<li>F89</li>
+			</ul>
+		</section>
+	</body>
+</html>
