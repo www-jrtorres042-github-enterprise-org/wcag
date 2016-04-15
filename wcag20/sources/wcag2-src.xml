@@ -7,18 +7,19 @@
     <w3c-designation>WCAG20</w3c-designation>
     <w3c-doctype>W3C Recommendation</w3c-doctype>
     <pubdate>
-        <month>October</month>
-        <year>2015</year>
+		<day>19</day>
+        <month>April</month>
+        <year>2016</year>
     </pubdate>
     <publoc>
-    	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20151006/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20151006/</loc>
+    	<loc href="https://www.w3.org/WAI/GL/2016/WD-WCAG20-20160419/">http://www.w3.org/WAI/GL/2016/WD-WCAG20-20160419/</loc>
     </publoc>
     <altlocs>
-    	<loc href="Overview-diff.html">Single file diff-marked version showing revisions since 11 December 2008</loc>
+    	<loc href="Overview-diff.html">iff-marked version showing revisions since 11 December 2008</loc>
     	<loc href="/WAI/WCAG20/versions/guidelines/">Alternate Versions of Web Content Accessibility Guidelines 2.0</loc>
     </altlocs>
     <latestloc>
-      <loc href="http://www.w3.org/WAI/GL/WCAG20/">http://www.w3.org/WAI/GL/WCAG20/</loc>
+      <loc href="https://www.w3.org/WAI/GL/WCAG20/">https://www.w3.org/WAI/GL/WCAG20/</loc>
     </latestloc>
     <prevlocs>
     	<loc href="http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/">http://www.w3.org/WAI/GL/2010/WD-WCAG20-20100617/</loc>
