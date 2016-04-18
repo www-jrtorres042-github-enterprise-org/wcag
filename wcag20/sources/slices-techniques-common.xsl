@@ -49,8 +49,9 @@
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             <xsl:call-template name="css"/>
+        		<xsl:call-template name="additional-head"/>
           </head>
-         <body class="slices">
+         <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -95,8 +96,9 @@
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             <xsl:call-template name="css"/>
+        		<xsl:call-template name="additional-head"/>
           </head>
-            <body class="slices">
+            <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -144,11 +146,12 @@
     	    		<xsl:call-template name="canonical-link"/>
               <xsl:call-template name="css"/>
               <link rel="stylesheet" type="text/css" href="slicenav.css"/>
+    	    		<xsl:call-template name="additional-head"/>
               <xsl:if test="$show.diff.markup != 0">
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             </head>
-            <body class="slices">
+            <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -200,11 +203,12 @@
     	    		<xsl:call-template name="canonical-link"/>
               <xsl:call-template name="css"/>
               <link rel="stylesheet" type="text/css" href="slicenav.css"/>
+    	    		<xsl:call-template name="additional-head"/>
               <xsl:if test="$show.diff.markup != 0">
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             </head>
-            <body class="slices">
+            <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -253,8 +257,9 @@
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             <xsl:call-template name="css"/>
+      	    		<xsl:call-template name="additional-head"/>
           </head>
-          <body class="slices">
+          <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -303,8 +308,9 @@
               <script type="text/javascript" src="diffmarks.js"><xsl:text> </xsl:text></script>
             </xsl:if>
             <xsl:call-template name="css"/>
+      	    		<xsl:call-template name="additional-head"/>
           </head>
-          <body class="slices">
+          <body class="slices toc-inline">
           <xsl:if test="$show.diff.markup != 0">
             <xsl:attribute name="onload">jscheck()</xsl:attribute>
           </xsl:if>
@@ -347,14 +353,14 @@
         		<xsl:call-template name="canonical-link"/>
                       <link rel="stylesheet" type="text/css" href="additional.css"/>
             <xsl:call-template name="css"/>
+        		<xsl:call-template name="additional-head"/>
           </head>
           <body>
-            <a name="top" > </a>
             <xsl:apply-templates/>
             <xsl:if test="//footnote">
-              <hr/>
               <div class="endnotes">
-                <h3>
+              	<hr/>
+              	<h3>
                   <a name="endnotes">
                     <xsl:text>End Notes</xsl:text>
                   </a>
@@ -369,6 +375,7 @@
               <xsl:with-param name="next" select="$next"/>
             </xsl:call-template>
             <!--xsl:call-template name="footer"></xsl:call-template-->
+          	<script src="//www.w3.org/scripts/TR/2016/fixup.js" type="text/javascript"></script> 
           </body>
         </html>
   		</xsl:result-document>
@@ -643,7 +650,7 @@
 				</xsl:when>
     <xsl:otherwise>
       <!-- @@ check on parenthetical - seems less than ideal -->
-      <xsl:apply-templates select="head" mode="text"/> (<a><xsl:attribute name="href"><xsl:call-template name="href.target"><xsl:with-param name="target" select="."/></xsl:call-template></xsl:attribute>all <xsl:apply-templates select="head" mode="text"/> on one page</a>)
+      <xsl:apply-templates select="head" mode="text"/> <a><xsl:attribute name="href"><xsl:call-template name="href.target"><xsl:with-param name="target" select="."/></xsl:call-template></xsl:attribute> (all <xsl:apply-templates select="head" mode="text"/> on one page)</a>
     </xsl:otherwise>
   </xsl:choose>
 						
@@ -680,7 +687,7 @@
 	</xsl:template>
 
 <xsl:template name="skipnav">
-<div id="masthead"><p class="logo"><a href="http://www.w3.org/"><img width="72" height="48" alt="W3C" src="http://www.w3.org/Icons/w3c_home" /></a></p><p class="collectiontitle"><a href="./">Techniques for WCAG 2.0</a></p></div>
+	<div id="masthead"><p class="logo"><a href="http://www.w3.org/"><img width="72" height="48" alt="W3C" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" /></a></p><p class="collectiontitle"><a href="./">Techniques for WCAG 2.0</a></p></div>
 <div id="skipnav"><p class="skipnav"><a href="#maincontent">Skip to Content (Press Enter)</a></p>	</div>
 
 <xsl:if test="$show.diff.markup != 0">
