@@ -482,7 +482,7 @@ and operating content do not rely solely on sensory characteristics of component
                 <item>
                   <p>
                     <emph role="sc-handle">Logotypes: </emph>
-                    Text that is part of a logo or brand name has no minimum contrast requirement.</p>
+                    Text that is part of a logo or brand name has no <phrase diff="del">minimum</phrase> contrast requirement.</p>
                 </item>
               </ulist>
              
