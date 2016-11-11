@@ -6,11 +6,11 @@
 	
 	<xsl:import href="convert-base.xslt"/>
 	
-	<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" />
+	<xsl:output method="xhtml" encoding="UTF-8" omit-xml-declaration="yes" />
 	
 	<xsl:template match="spec">
 		<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>]]></xsl:text>
-		<xsl:text disable-output-escaping="yes"><![CDATA[<html lang="en_US" xml:lang="en_US" xmlns="http://www.w3.org/1999/xhtml">]]></xsl:text>
+		<xsl:text disable-output-escaping="yes"><![CDATA[<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">]]></xsl:text>
 		<head>
 			<title>
 				<xsl:value-of select="header/title"/>

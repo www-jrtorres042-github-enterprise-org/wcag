@@ -62,10 +62,12 @@
 	</xsl:template>
 	
 	<xsl:template match="item">
-		<xsl:choose>
-			<xsl:when test="count(element()) &gt; 1"><xsl:apply-templates/></xsl:when>
-			<xsl:otherwise><xsl:apply-templates select="element()/node()"/></xsl:otherwise>
-		</xsl:choose>
+		<li>
+			<xsl:choose>
+				<xsl:when test="count(element()) &gt; 1"><xsl:apply-templates/></xsl:when>
+				<xsl:otherwise><xsl:apply-templates select="element()/node()"/></xsl:otherwise>
+			</xsl:choose>
+		</li>
 	</xsl:template>
 	
 	<xsl:template match="glist">
@@ -104,6 +106,6 @@
 		<xsl:copy/>
 	</xsl:template>
 	
-	<xsl:template match="@role"/>
+	<xsl:template match="@role | @diff"/>
 	
 </xsl:stylesheet>
