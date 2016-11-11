@@ -17,8 +17,8 @@
 				<xsl:value-of select="header/version"/>
 			</title>
 			<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
-			<link rel="stylesheet" type="text/css" href="sources.css"/>
-			<link rel="stylesheet" type="text/css" href="https://www.w3.org/TR/WCAG20/additional.css"/>
+			<link rel="stylesheet" type="text/css" href="../css/sources.css"/>
+			<link rel="stylesheet" type="text/css" href="../css/additional.css"/>
 			<script class="remove">
 				var respecConfig = {
 				// embed RDFa data in the output
