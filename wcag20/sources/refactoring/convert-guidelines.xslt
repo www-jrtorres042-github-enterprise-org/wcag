@@ -5,6 +5,8 @@
 	version="2.0">
 	
 	<xsl:import href="convert-base.xslt"/>
+
+	<xsl:param name="loc.guidelines">#</xsl:param>
 	
 	<xsl:output method="xhtml" encoding="UTF-8" omit-xml-declaration="yes" />
 	
@@ -19,7 +21,7 @@
 			<script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
 			<link rel="stylesheet" type="text/css" href="../css/sources.css"/>
 			<link rel="stylesheet" type="text/css" href="../css/additional.css"/>
-			<script class="remove">
+			<script class="remove"><![CDATA[
 				var respecConfig = {
 				// embed RDFa data in the output
 				trace:  true,
@@ -122,7 +124,7 @@
 				maxTocLevel: 4,
 				
 				};
-			</script>
+			]]></script>
 			<style type="text/css">
 				.principle h2::before {
 				content: "Principle ";
