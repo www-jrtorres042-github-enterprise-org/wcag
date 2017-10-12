@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wcag="https://www.w3.org/WAI/GL/"
 	exclude-result-prefixes="xs"
 	version="2.0">
 	
@@ -8,6 +9,40 @@
 	<xsl:param name="loc.understanding">https://www.w3.org/TR/UNDERSTANDING-WCAG20/</xsl:param>
 	<xsl:param name="loc.techniques">https://www.w3.org/TR/WCAG20-TECHS/</xsl:param>
 	<xsl:param name="loc.examples">https://www.w3.org/WAI/WCAG20/Techniques/working-examples/</xsl:param>
+	
+	<xsl:function name="wcag:sc-id">
+		<xsl:param name="sc-title"/>
+		<xsl:value-of select="lower-case(replace(replace($sc-title, ' ', '-'), '[,()]', ''))"/>
+	</xsl:function>
+	
+	<xsl:function name="wcag:get-handle-from-element">
+		<xsl:param name="sc"/>
+		<xsl:choose>
+			<xsl:when test="$sc/@role = 'sc'"><xsl:value-of  select="$sc/head/text()"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:choose>
+					<xsl:when test="$sc/@id = 'perceivable'">Perceivable</xsl:when>
+					<xsl:when test="$sc/@id = 'text-equiv'">Text Alternative</xsl:when>
+					<xsl:when test="$sc/@id = 'media-equiv'">Time-Based Media</xsl:when>
+					<xsl:when test="$sc/@id = 'content-structure-separation'">Adaptable</xsl:when>
+					<xsl:when test="$sc/@id = 'visual-audio-contrast'">Distinguishable</xsl:when>
+					<xsl:when test="$sc/@id = 'operable'">Operable</xsl:when>
+					<xsl:when test="$sc/@id = 'keyboard-operation'">Keyboard Accessible</xsl:when>
+					<xsl:when test="$sc/@id = 'time-limits'">Enough Time</xsl:when>
+					<xsl:when test="$sc/@id = 'seizure'">Seizures</xsl:when>
+					<xsl:when test="$sc/@id = 'navigation-mechanisms'">Navigable</xsl:when>
+					<xsl:when test="$sc/@id = 'understandable'">Understandable</xsl:when>
+					<xsl:when test="$sc/@id = 'meaning'">Readable</xsl:when>
+					<xsl:when test="$sc/@id = 'consistent-behavior'">Predictable</xsl:when>
+					<xsl:when test="$sc/@id = 'minimize-error'">Input Assistance</xsl:when>
+					<xsl:when test="$sc/@id = 'robust'">Robust</xsl:when>
+					<xsl:when test="$sc/@id = 'ensure-compat'">Compatible</xsl:when>
+					<xsl:when test="$sc/@id = 'conformance'">Conformance</xsl:when>
+					<xsl:otherwise>UNKNOWN</xsl:otherwise>
+				</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
 	
 	<xsl:template match="abstract">
 		<section id="abstract">
@@ -121,6 +156,26 @@
 		<xsl:text>[[</xsl:text>
 		<xsl:value-of select="@ref"/>
 		<xsl:text>]]</xsl:text>
+	</xsl:template>
+	
+	<xsl:template match="eg-group">
+		<section class="example">
+			<xsl:apply-templates></xsl:apply-templates>
+		</section>
+	</xsl:template>
+	
+	<xsl:template match="eg-group/head">
+		<h3>Example <xsl:value-of select="count(parent::eg-group/preceding-sibling::eg-group) + 1"/>: <xsl:apply-templates/></h3>
+	</xsl:template>
+	
+	<xsl:template match="eg-group/description">
+		<xsl:apply-templates/>
+	</xsl:template>
+	
+	<xsl:template match="codeblock" xml:space="preserve">
+		<pre xml:space="preserve">
+			<xsl:apply-templates/>
+		</pre>
 	</xsl:template>
 	
 	<xsl:template match="id('references')"/>
