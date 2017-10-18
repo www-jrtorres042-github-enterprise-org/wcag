@@ -178,6 +178,12 @@
 		</pre>
 	</xsl:template>
 	
+	<xsl:template match="note">
+		<div class="note">
+			<xsl:apply-templates/>
+		</div>
+	</xsl:template>
+	
 	<xsl:template match="id('references')"/>
 	
 	<xsl:template match="@*">
