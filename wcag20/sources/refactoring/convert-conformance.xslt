@@ -30,7 +30,9 @@
 	</xsl:template>
 	
 	<xsl:template match="example">
-		<xsl:apply-templates/>
+		<div class="example">
+			<xsl:apply-templates/>
+		</div>
 	</xsl:template>
 	
 	<xsl:template match="div3[@id = 'conformance-terms']"/>

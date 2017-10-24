@@ -144,7 +144,7 @@
 				<xsl:when test="not(@linktype)"><xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'understanding'"><xsl:value-of select="$loc.understanding"/><xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="index-of(('techniques', 'aria', 'css', 'html', 'failure', 'flash', 'general', 'pdf', 'silverlight', 'text', 'script', 'server', 'smil'), @linktype)"><xsl:value-of select="$loc.techniques"/><xsl:value-of select="@href"/></xsl:when>
-				<xsl:when test="index-of(('glossary', 'guideline'), @linktype)"><xsl:value-of select="$loc.guidelines"/><xsl:value-of select="@href"/></xsl:when>
+				<xsl:when test="index-of(('glossary', 'guideline'), @linktype)"><xsl:value-of select="$loc.guidelines"/>#<xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'examples'"><xsl:value-of select="$loc.examples"/><xsl:value-of select="@href"/></xsl:when>
 				<xsl:otherwise><xsl:message>linktype: <xsl:value-of select="@linktype"/></xsl:message><xsl:value-of select="@href"/></xsl:otherwise>
 			</xsl:choose>

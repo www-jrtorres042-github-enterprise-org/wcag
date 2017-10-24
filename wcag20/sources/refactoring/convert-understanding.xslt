@@ -18,7 +18,7 @@
 		<xsl:apply-templates select="//body/div1"/>
 	</xsl:template>
 	
-	<xsl:template match="div1 | div2[role='extsrc']">
+	<xsl:template match="div1 | div2[@role='extsrc']">
 		<xsl:variable name="sc" select="$guidelines.doc//*[@id = current()/@id]"/>
 		<xsl:variable name="sc-title" select="wcag:get-handle-from-element($sc)"/>
 		<xsl:variable name="sc-id" select="wcag:sc-id($sc-title)"/>
