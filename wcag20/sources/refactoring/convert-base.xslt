@@ -172,10 +172,8 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 	
-	<xsl:template match="codeblock" xml:space="preserve">
-		<pre xml:space="preserve">
-			<xsl:apply-templates/>
-		</pre>
+	<xsl:template match="codeblock | eg-group/code">
+		<pre xml:space="preserve"><xsl:apply-templates/></pre>
 	</xsl:template>
 	
 	<xsl:template match="note">
