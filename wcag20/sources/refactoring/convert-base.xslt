@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:wcag="https://www.w3.org/WAI/GL/"
-	exclude-result-prefixes="xs"
+	exclude-result-prefixes="#all"
 	version="2.0">
 	
 	<xsl:param name="loc.guidelines">https://www.w3.org/TR/WCAG20/</xsl:param>
