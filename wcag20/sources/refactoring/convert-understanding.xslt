@@ -138,7 +138,7 @@
 		<xsl:variable name="sc" select="$guidelines.doc//*[@id = current()/@ref]"/>
 		<xsl:variable name="sc-title" select="wcag:get-handle-from-element($sc)"/>
 		<xsl:variable name="sc-id" select="wcag:sc-id($sc-title)"/>
-		<a href="{$sc-id}"></a>
+		<a href="{$sc-id}"><xsl:number count="div2[@role = 'principle'] | div3[@role = 'group1'] | div5[@role = 'sc']" level="multiple" select="$sc" format="1.1.1"/>: <xsl:value-of select="$sc-title"/></a>
 	</xsl:template>
 			
 	

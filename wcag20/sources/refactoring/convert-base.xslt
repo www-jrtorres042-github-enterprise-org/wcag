@@ -22,7 +22,7 @@
 			<xsl:otherwise>
 				<xsl:choose>
 					<xsl:when test="$sc/@id = 'perceivable'">Perceivable</xsl:when>
-					<xsl:when test="$sc/@id = 'text-equiv'">Text Alternative</xsl:when>
+					<xsl:when test="$sc/@id = 'text-equiv'">Text Alternatives</xsl:when>
 					<xsl:when test="$sc/@id = 'media-equiv'">Time-Based Media</xsl:when>
 					<xsl:when test="$sc/@id = 'content-structure-separation'">Adaptable</xsl:when>
 					<xsl:when test="$sc/@id = 'visual-audio-contrast'">Distinguishable</xsl:when>
