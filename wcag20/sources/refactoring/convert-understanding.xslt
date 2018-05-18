@@ -35,7 +35,6 @@
 			</head>
 			<body>
 				<h1>Understanding <xsl:value-of select="$sc-title"/></h1>
-				<blockquote class="scquote" data-include="../../sc/20/{$sc-id}.html">SC text</blockquote>
 				<xsl:apply-templates>
 					<xsl:with-param name="sc-title" select="$sc-title" tunnel="yes"/>
 					<xsl:with-param name="sc-id" select="$sc-id" tunnel="yes"/>
