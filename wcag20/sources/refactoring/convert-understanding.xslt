@@ -115,7 +115,7 @@
 		<xsl:param name="sc-title" tunnel="yes" />
 		<xsl:param name="sc-id" tunnel="yes" />
 		<section id="failure">
-			<h3>Common Failures for <xsl:value-of select="$sc-title"/></h3>
+			<h3>Failures for <xsl:value-of select="$sc-title"/></h3>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
@@ -134,6 +134,10 @@
 	
 	<xsl:template match="*[@role = 'tech-optional' or @role = 'failures']/div5/head">
 		<h4><xsl:apply-templates/></h4>
+	</xsl:template>
+	
+	<xsl:template match="*[@role = 'resources' or @role = 'intent']/div4/head">
+		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
 	
 	<xsl:template match="div1/head | div2/head | div3/head | div4/head | div5/head" priority="-.5"/>
