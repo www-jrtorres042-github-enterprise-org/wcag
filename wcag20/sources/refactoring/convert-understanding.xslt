@@ -132,6 +132,10 @@
 		<h4><xsl:apply-templates/></h4>
 	</xsl:template>
 	
+	<xsl:template match="*[@role = 'tech-optional' or @role = 'failures']/div5/head">
+		<h4><xsl:apply-templates/></h4>
+	</xsl:template>
+	
 	<xsl:template match="div1/head | div2/head | div3/head | div4/head | div5/head" priority="-.5"/>
 	
 	<xsl:template match="specref">
