@@ -26,10 +26,9 @@
 			<xsl:text disable-output-escaping="yes"><![CDATA[<!DOCTYPE html>
 ]]></xsl:text>
 			<xsl:text disable-output-escaping="yes"><![CDATA[<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-]]></xsl:text>
-			<meta charset="UTF-8"/>
-			
+]]></xsl:text>		
 			<head>
+				<meta charset="UTF-8"/>
 				<title>Understanding <xsl:value-of select="$sc-title"/></title>
 				<link rel="stylesheet" type="text/css" href="../../css/sources.css" class="remove" />
 			</head>
