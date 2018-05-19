@@ -53,13 +53,15 @@
 			<h2>Intent of <xsl:value-of select="$sc-title"/></h2>
 			<xsl:apply-templates/>
 		</section>
+		<xsl:apply-templates select="div4[@role = 'benefits']" mode="forreals"/>
 	</xsl:template>
 	
-	<xsl:template match="*[@role = 'benefits']">
+	<xsl:template match="*[@role = 'benefits']"/>
+	<xsl:template match="*[@role = 'benefits']" mode="forreals">
 		<xsl:param name="sc-title" tunnel="yes" />
 		<xsl:param name="sc-id" tunnel="yes" />
 		<section id="benefits">
-			<h3>Benefits of <xsl:value-of select="$sc-title"/></h3>
+			<h2>Benefits of <xsl:value-of select="$sc-title"/></h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
@@ -134,7 +136,7 @@
 		<h4><xsl:apply-templates/></h4>
 	</xsl:template>
 	
-	<xsl:template match="*[@role = 'resources' or @role = 'intent']/div4/head">
+	<xsl:template match="*[@role = 'resources' or @role = 'intent']/div4[not(@role = 'benefits')]/head">
 		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
 	
