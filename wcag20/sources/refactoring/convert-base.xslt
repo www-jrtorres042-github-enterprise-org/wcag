@@ -5,10 +5,10 @@
 	exclude-result-prefixes="#all"
 	version="2.0">
 	
-	<xsl:param name="loc.guidelines">https://www.w3.org/TR/WCAG20/</xsl:param>
-	<xsl:param name="loc.understanding">https://www.w3.org/TR/UNDERSTANDING-WCAG20/</xsl:param>
-	<xsl:param name="loc.techniques">https://www.w3.org/TR/WCAG20-TECHS/</xsl:param>
-	<xsl:param name="loc.examples">https://www.w3.org/WAI/WCAG20/Techniques/working-examples/</xsl:param>
+	<xsl:param name="loc.guidelines">https://www.w3.org/TR/WCAG21/</xsl:param>
+	<xsl:param name="loc.understanding">https://www.w3.org/WAI/WCAG21/Understanding/</xsl:param>
+	<xsl:param name="loc.techniques">https://www.w3.org/WAI/WCAG21/Techniques/</xsl:param>
+	<xsl:param name="loc.examples">https://www.w3.org/WAI/WCAG21/Techniques/working-examples/</xsl:param>
 	
 	<xsl:function name="wcag:sc-id">
 		<xsl:param name="sc-title"/>
@@ -144,12 +144,15 @@
 				<xsl:when test="not(@linktype)"><xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'understanding'"><xsl:value-of select="$loc.understanding"/><xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="index-of(('techniques', 'aria', 'css', 'html', 'failure', 'flash', 'general', 'pdf', 'silverlight', 'text', 'script', 'server', 'smil'), @linktype)"><xsl:value-of select="$loc.techniques"/><xsl:value-of select="@href"/></xsl:when>
-				<xsl:when test="index-of(('glossary', 'guideline'), @linktype)"><xsl:value-of select="$loc.guidelines"/>#<xsl:value-of select="@href"/></xsl:when>
+				<xsl:when test="@linktype = 'guideline'"><xsl:value-of select="$loc.guidelines"/>#<xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'examples'"><xsl:value-of select="$loc.examples"/><xsl:value-of select="@href"/></xsl:when>
 				<xsl:otherwise><xsl:message>linktype: <xsl:value-of select="@linktype"/></xsl:message><xsl:value-of select="@href"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<a href="{$target}"><xsl:apply-templates/></a>
+		<xsl:choose>
+			<xsl:when test="@linktype = 'glossary'"><a><xsl:apply-templates/></a></xsl:when>
+			<xsl:otherwise><a href="{$target}"><xsl:apply-templates/></a></xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template match="bibref">
