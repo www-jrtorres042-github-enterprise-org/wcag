@@ -149,5 +149,28 @@
 		<a href="{$sc-id}"><xsl:number count="div2[@role = 'principle'] | div3[@role = 'group1'] | div5[@role = 'sc']" level="multiple" select="$sc" format="1.1.1"/>: <xsl:value-of select="$sc-title"/></a>
 	</xsl:template>
 			
+	<xsl:template match="loc">
+		<xsl:variable name="sc" select="$guidelines.doc//*[@id = current()/@href]"/>
+		<xsl:variable name="sc-title" select="wcag:get-handle-from-element($sc)"/>
+		<xsl:variable name="sc-id" select="wcag:sc-id($sc-title)"/>
+		<xsl:variable name="target">
+			<xsl:choose>
+				<xsl:when test="not(@linktype)"><xsl:value-of select="@href"/></xsl:when>
+				<xsl:when test="@linktype = 'understanding'"><xsl:value-of select="$sc-id"/><xsl:if test="@locn-note">#techniques</xsl:if></xsl:when>
+				<xsl:when test="index-of(('techniques', 'aria', 'css', 'html', 'failure', 'flash', 'general', 'pdf', 'silverlight', 'text', 'script', 'server', 'smil'), @linktype)"><xsl:value-of select="$loc.techniques"/><xsl:value-of select="wcag:linktype-to-path(@linktype)"/>/<xsl:value-of select="@href"/></xsl:when>
+				<xsl:when test="@linktype = 'guideline'"><xsl:value-of select="$sc-id"/></xsl:when>
+				<xsl:when test="@linktype = 'examples'"><xsl:value-of select="$loc.examples"/><xsl:value-of select="@href"/></xsl:when>
+				<xsl:otherwise><xsl:message>linktype: <xsl:value-of select="@linktype"/></xsl:message><xsl:value-of select="@href"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<a>
+			<xsl:choose>
+				<xsl:when test="@linktype = 'glossary'"/>
+				<xsl:otherwise><xsl:attribute name="href" select="$target"/></xsl:otherwise>
+			</xsl:choose>
+			<xsl:if test="@linktype"><xsl:attribute name="class" select="@linktype"/></xsl:if>
+			<xsl:apply-templates/>
+		</a>
+	</xsl:template>
 	
 </xsl:stylesheet>

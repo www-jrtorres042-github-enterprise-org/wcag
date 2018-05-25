@@ -44,6 +44,26 @@
 		</xsl:choose>
 	</xsl:function>
 	
+	<xsl:function name="wcag:linktype-to-path">
+		<xsl:param name="linktype"/>
+		<xsl:choose>
+			<xsl:when test="$linktype = 'aria'">aria</xsl:when>
+			<xsl:when test="$linktype = 'css'">css</xsl:when>
+			<xsl:when test="$linktype = 'html'">html</xsl:when>
+			<xsl:when test="$linktype = 'failure'">failures</xsl:when>
+			<xsl:when test="$linktype = 'flash'">flash</xsl:when>
+			<xsl:when test="$linktype = 'general'">general</xsl:when>
+			<xsl:when test="$linktype = 'pdf'">pdf</xsl:when>
+			<xsl:when test="$linktype = 'silverlight'">silverlight</xsl:when>
+			<xsl:when test="$linktype = 'text'">text</xsl:when>
+			<xsl:when test="$linktype = 'script'">client-side-script</xsl:when>
+			<xsl:when test="$linktype = 'server'">server-side-script</xsl:when>
+			<xsl:when test="$linktype = 'smil'">smil</xsl:when>
+			<xsl:when test="$linktype = 'techniques'"><xsl:message>Generic linktype 'techniques'</xsl:message></xsl:when>
+			<xsl:otherwise><xsl:message>Unrecognized linktype <xsl:value-of select="$linktype"/></xsl:message></xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
+	
 	<xsl:template match="abstract">
 		<section id="abstract">
 			<xsl:apply-templates/>
@@ -143,7 +163,7 @@
 			<xsl:choose>
 				<xsl:when test="not(@linktype)"><xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'understanding'"><xsl:value-of select="$loc.understanding"/><xsl:value-of select="@href"/></xsl:when>
-				<xsl:when test="index-of(('techniques', 'aria', 'css', 'html', 'failure', 'flash', 'general', 'pdf', 'silverlight', 'text', 'script', 'server', 'smil'), @linktype)"><xsl:value-of select="$loc.techniques"/><xsl:value-of select="@href"/></xsl:when>
+				<xsl:when test="index-of(('techniques', 'aria', 'css', 'html', 'failure', 'flash', 'general', 'pdf', 'silverlight', 'text', 'script', 'server', 'smil'), @linktype)"><xsl:value-of select="$loc.techniques"/><xsl:value-of select="@linktype"/>/<xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'guideline'"><xsl:value-of select="$loc.guidelines"/>#<xsl:value-of select="@href"/></xsl:when>
 				<xsl:when test="@linktype = 'examples'"><xsl:value-of select="$loc.examples"/><xsl:value-of select="@href"/></xsl:when>
 				<xsl:otherwise><xsl:message>linktype: <xsl:value-of select="@linktype"/></xsl:message><xsl:value-of select="@href"/></xsl:otherwise>
@@ -183,6 +203,10 @@
 		<div class="note">
 			<xsl:apply-templates/>
 		</div>
+	</xsl:template>
+	
+	<xsl:template match="*[@use-id]" priority="1">
+		<xsl:apply-templates select="//*[@id = current()/@use-id]"/>
 	</xsl:template>
 	
 	<xsl:template match="id('references')"/>
