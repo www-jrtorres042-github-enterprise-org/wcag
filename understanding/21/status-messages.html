@@ -40,8 +40,9 @@
 				<li>After a user enters incorrect text in an input called Postal Code, a message appears above the input reading "Invalid entry".  The screen reader announces, "Invalid entry" or "Postal code, invalid entry".</li>
 				<li>After a user activates a process, an icon symbolizing 'busy'  appears on the screen. The screen reader announces "application busy". </li>
 				<li>An application displays a progressbar to indicate the status of an upgrade. The element is assigned a suitable role. The screen reader provides intermittent announcements of the progress. </li>
-        <li>After a user submits a form, text is added to the existing form which reads, "Your form was successfully submitted." The screen reader announces the same message.</li> 
-        <li>After a user unsuccessfully fills in a form because some of the data is in the incorrect format, text is added to the existing form which reads "5 errors on page". The screen reader announces the same message.</li>
+		        <li>After a user submits a form, text is added to the existing form which reads, "Your form was successfully submitted." The screen reader announces the same message.</li> 
+		        <li>After a user unsuccessfully fills in a form because some of the data is in the incorrect format, text is added to the existing form which reads "5 errors on page". The screen reader announces the same message.</li>
+		        <li>After a user puts a photo in an album in an online photo app, a <a href="https://material.io/design/components/snackbars.html#">snackbar </a> displays the message "Saved in 'Wedding' album", which is also read by a screen reader.</li>
 			</ol>
 			</section>
 			<section class="example">
@@ -106,7 +107,7 @@
 
 					<h4>Situation A: If a status message advises on the success or results of an action, or the state of an application:</h4>
 					<ul>
-						<li><a href="aria-status-role.html">Using <code>role="status"</code></a> @@@ technique created but URL unknown @@@ in combination with any of the following:
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/aria-status-role.html" class="aria">ARIA22: Using <code>role="status"</code> to surface messages</a> in combination with any of the following:
 							<ul>
 								<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G199" class="general">G199: Providing success feedback when data is submitted successfully</a></li>
 							</ul>
@@ -134,9 +135,9 @@
 					<h4>Situation C: If a status message conveys information on the progress of a process:</h4>
 					<ul>
 					
-						<li><a href="aria-log-role.html" >Using <code>role="log"</code></a> @@@ technique created but URL unknown</li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/aria-log-role.html" class="aria" >ARIA23: Using <code>role="log"</code> to improve AT support</a></li>
 						<li>Using <code>role="progressbar"</code> (future link)</li>
-						<li><a href="aria-status-role.html">Using <code>role="status"</code></a> @@@ URL to update @@@ in combination with <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G193" class="general">G193: Providing help by an assistant in the Web page</a></li>
+						<li><a href="https://www.w3.org/WAI/WCAG21/Techniques/aria/aria-status-role.html" class="aria">ARIA22: Using <code>role="status"</code> to surface messages</a> in combination with <a href="https://www.w3.org/WAI/WCAG21/Techniques/general/G193" class="general">G193: Providing help by an assistant in the Web page</a></li>
 					</ul>
 				</section>
 			</section>
