@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:wcag="https://www.w3.org/WAI/GL/"
-	exclude-result-prefixes="xs"
+	exclude-result-prefixes="#all"
 	version="2.0">
 	
 	<xsl:import href="convert-base.xslt"/>
@@ -61,42 +61,42 @@
 	</xsl:template>
 	
 	<xsl:template match="applicability">
-		<section class="applicability">
+		<section id="applicability">
 			<h2>When to Use</h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
 	
-	<xsl:template match="description" priority="-.5">
-		<section class="description">
+	<xsl:template match="description">
+		<section id="description">
 			<h2>Description</h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
 	
 	<xsl:template match="examples">
-		<section class="examples">
+		<section id="examples">
 			<h2>Examples</h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
 	
 	<xsl:template match="resources">
-		<section class="resources">
+		<section id="resources">
 			<h2>Resources</h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
 	
 	<xsl:template match="related-techniques">
-		<section class="related">
+		<section id="related">
 			<h2>Related Techniques</h2>
 			<xsl:apply-templates/>
 		</section>
 	</xsl:template>
 	
 	<xsl:template match="tests">
-		<section class="tests">
+		<section id="tests">
 			<h2>Tests</h2>
 			<xsl:apply-templates/>
 		</section>
@@ -114,6 +114,10 @@
 			<h3>Expected Results</h3>
 			<xsl:apply-templates/>
 		</section>
+	</xsl:template>
+	
+	<xsl:template match="eg-group/description" priority="1">
+		<xsl:apply-templates/>
 	</xsl:template>
 	
 </xsl:stylesheet>

@@ -8,7 +8,7 @@
 	<xsl:param name="loc.guidelines">https://www.w3.org/TR/WCAG21/</xsl:param>
 	<xsl:param name="loc.understanding">https://www.w3.org/WAI/WCAG21/Understanding/</xsl:param>
 	<xsl:param name="loc.techniques">https://www.w3.org/WAI/WCAG21/Techniques/</xsl:param>
-	<xsl:param name="loc.examples">https://www.w3.org/WAI/WCAG21/Techniques/working-examples/</xsl:param>
+	<xsl:param name="loc.examples">https://www.w3.org/WAI/WCAG21/working-examples/</xsl:param>
 	
 	<xsl:function name="wcag:sc-id">
 		<xsl:param name="sc-title"/>
@@ -77,7 +77,12 @@
 	</xsl:template>
 	
 	<xsl:template match="p">
-		<p><xsl:apply-templates select="node()|@*"/></p>
+		<p>
+			<xsl:if test="loc/@linktype = 'examples'">
+				<xsl:attribute name="class">working-example</xsl:attribute>
+			</xsl:if>
+			<xsl:apply-templates select="node()|@*"/>
+		</p>
 	</xsl:template>
 	
 	<xsl:template match="p[termref/@def = 'informativedef' or termref/@def = 'normativedef']"/>
@@ -188,10 +193,10 @@
 	</xsl:template>
 	
 	<xsl:template match="eg-group/head">
-		<h3>Example <xsl:value-of select="count(parent::eg-group/preceding-sibling::eg-group) + 1"/>: <xsl:apply-templates/></h3>
+		<h3><xsl:apply-templates/></h3>
 	</xsl:template>
 	
-	<xsl:template match="eg-group/description">
+	<xsl:template match="eg-group/description" priority="1">
 		<xsl:apply-templates/>
 	</xsl:template>
 	
