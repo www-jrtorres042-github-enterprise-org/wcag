@@ -64,6 +64,32 @@
 		</xsl:choose>
 	</xsl:function>
 	
+	<xsl:function name="wcag:technique-technology-from-id">
+		<xsl:param name="tech-id"/>
+		<xsl:variable name="technology-component">
+			<xsl:analyze-string select="$tech-id" regex="^\w+">
+				<xsl:matching-substring><xsl:value-of select="regex-group(0)"/></xsl:matching-substring>
+				<xsl:non-matching-substring><xsl:message terminate="yes">Didn't get technology component from <xsl:value-of select="$tech-id"/></xsl:message></xsl:non-matching-substring>
+			</xsl:analyze-string>
+		</xsl:variable>
+		<xsl:choose>
+			<xsl:when test="$technology-component = 'ARIA'">aria</xsl:when>
+			<xsl:when test="$technology-component = 'C'">css</xsl:when>
+			<xsl:when test="$technology-component = 'H'">html</xsl:when>
+			<xsl:when test="$technology-component = 'F'">failures</xsl:when>
+			<xsl:when test="$technology-component = 'FLASH'">flash</xsl:when>
+			<xsl:when test="$technology-component = 'G'">general</xsl:when>
+			<xsl:when test="$technology-component = 'PDF'">pdf</xsl:when>
+			<xsl:when test="$technology-component = 'SL'">silverlight</xsl:when>
+			<xsl:when test="$technology-component = 'T'">text</xsl:when>
+			<xsl:when test="$technology-component = 'SCR'">client-side-script</xsl:when>
+			<xsl:when test="$technology-component = 'SVR'">server-side-script</xsl:when>
+			<xsl:when test="$technology-component = 'SM'">smil</xsl:when>
+			<xsl:when test="$technology-component = 'SVG'">svg</xsl:when>
+			<xsl:otherwise><xsl:message terminate="yes">Unrecognized technique technology <xsl:value-of select="$technology-component"/></xsl:message></xsl:otherwise>
+		</xsl:choose>
+	</xsl:function>
+	
 	<xsl:template match="abstract">
 		<section id="abstract">
 			<xsl:apply-templates/>

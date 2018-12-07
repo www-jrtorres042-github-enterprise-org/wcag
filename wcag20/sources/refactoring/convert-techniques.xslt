@@ -91,7 +91,11 @@
 	<xsl:template match="related-techniques">
 		<section id="related">
 			<h2>Related Techniques</h2>
-			<xsl:apply-templates/>
+			<xsl:if test="relatedtech">
+				<ul>
+					<xsl:apply-templates/>
+				</ul>
+			</xsl:if>
 		</section>
 	</xsl:template>
 	
@@ -118,6 +122,10 @@
 	
 	<xsl:template match="eg-group/description" priority="1">
 		<xsl:apply-templates/>
+	</xsl:template>
+	
+	<xsl:template match="relatedtech">
+		<li><a href="../{wcag:technique-technology-from-id(@idref)}/{@idref}"><xsl:value-of select="@idref"/></a></li>
 	</xsl:template>
 	
 </xsl:stylesheet>
