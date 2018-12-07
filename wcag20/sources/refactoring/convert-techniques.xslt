@@ -125,7 +125,13 @@
 	</xsl:template>
 	
 	<xsl:template match="relatedtech">
-		<li><a href="../{wcag:technique-technology-from-id(@idref)}/{@idref}"><xsl:value-of select="@idref"/></a></li>
+		<li>
+			<xsl:choose>
+				<xsl:when test="@idref">
+					<a href="../{wcag:technique-technology-from-id(@idref)}/{@idref}"><xsl:value-of select="@idref"/></a>
+				</xsl:when>
+				<xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+			</xsl:choose></li>
 	</xsl:template>
 	
 </xsl:stylesheet>

@@ -67,9 +67,8 @@
 	<xsl:function name="wcag:technique-technology-from-id">
 		<xsl:param name="tech-id"/>
 		<xsl:variable name="technology-component">
-			<xsl:analyze-string select="$tech-id" regex="^\w+">
-				<xsl:matching-substring><xsl:value-of select="regex-group(0)"/></xsl:matching-substring>
-				<xsl:non-matching-substring><xsl:message terminate="yes">Didn't get technology component from <xsl:value-of select="$tech-id"/></xsl:message></xsl:non-matching-substring>
+			<xsl:analyze-string select="string($tech-id)" regex="^([A-Z]+)">
+				<xsl:matching-substring><xsl:value-of select="regex-group(1)"/></xsl:matching-substring>
 			</xsl:analyze-string>
 		</xsl:variable>
 		<xsl:choose>
