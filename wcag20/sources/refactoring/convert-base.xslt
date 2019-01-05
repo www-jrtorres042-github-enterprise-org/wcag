@@ -235,6 +235,65 @@
 		</div>
 	</xsl:template>
 	
+	<xsl:template match="att | attval | el | obj | prop | propval | unit">
+		<code class="{name()}"><xsl:apply-templates/></code>
+	</xsl:template>
+	
+	<xsl:template match="example">
+		<aside class="example">
+			<xsl:apply-templates/>
+		</aside>
+	</xsl:template>
+	
+	<xsl:template match="exsubhead">
+		<p class="exsubhead">
+			<xsl:apply-templates/>
+		</p>
+	</xsl:template>
+	
+	<!-- commented out because graphics were manually transformed later with updated source
+	<xsl:template match="graphic">
+		<figure>
+			<img src="{@source}"/>
+			<figcaption><xsl:value-of select="@alt"/></figcaption>
+		</figure>
+	</xsl:template>
+
+	<xsl:template match="image">
+		<figure>
+			<img src="{@source}" height="{@height}" width="{@width}"/>
+			<figcaption><xsl:value-of select="alt"/></figcaption>
+		</figure>
+	</xsl:template>
+	-->
+	
+	<xsl:template match="phrase[@xml:lang]">
+		<span lang="{@xml:lang}"><xsl:apply-templates/></span>
+	</xsl:template>
+	
+	<xsl:template match="see-also">
+		<xsl:apply-templates/>
+	</xsl:template>
+	
+	<xsl:template match="sup">
+		<sup><xsl:apply-templates/></sup>
+	</xsl:template>
+	
+	<xsl:template match="table | tr | td | thead | tbody | tfoot | caption">
+		<xsl:copy>
+			<xsl:apply-templates select="node()|@*"/>
+		</xsl:copy>
+	</xsl:template>
+	
+	<xsl:template match="termdef">
+		<strong><xsl:value-of select="@term"/>: </strong>
+		<xsl:apply-templates/>
+	</xsl:template>
+	
+	<xsl:template match="var">
+		<var><xsl:apply-templates/></var>
+	</xsl:template>
+	
 	<xsl:template match="*[@use-id]" priority="1">
 		<xsl:apply-templates select="//*[@id = current()/@use-id]"/>
 	</xsl:template>
