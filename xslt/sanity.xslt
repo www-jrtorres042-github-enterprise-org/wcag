@@ -18,6 +18,7 @@
 			<body>
 				<h1>WCAG Editors Sanity Check</h1>
 				<xsl:call-template name="techniques-no-association"/>
+				<xsl:call-template name="techniques-no-id"/>
 			</body>
 		</html>
 	</xsl:template>
@@ -28,6 +29,19 @@
 			<ul>
 				<xsl:for-each select="$techniques-doc//technique">
 					<xsl:if test="not($techniques-associations-doc//technique[@id = current()/@id])">
+						<li><xsl:value-of select="@id"/></li>
+					</xsl:if>
+				</xsl:for-each>
+			</ul>
+		</section>
+	</xsl:template>
+	
+	<xsl:template name="techniques-no-id">
+		<section>
+			<h2>Techniques not named according to ID pattern</h2>
+			<ul>
+				<xsl:for-each select="$techniques-doc//technique">
+					<xsl:if test="not(matches(@id, '[A-Z]+\d+(.html)?$'))">
 						<li><xsl:value-of select="@id"/></li>
 					</xsl:if>
 				</xsl:for-each>
