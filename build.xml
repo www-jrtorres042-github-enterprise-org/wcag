@@ -258,6 +258,11 @@
 	<target name="all" depends="init, understanding, techniques" description="Generate entire suite"/>
 	
 	<!-- === Sanity check === -->
-	<target name="sanity" depends="init" description="Identifies inconsistencies in documents"></target>
+	<target name="sanity" depends="init, guidelines-xml, techniques-list, techniques-association" description="Identifies inconsistencies in documents">
+		<xslt in="${inputdir.guidelines}/wcag.xml" out="sanity.html" style="xslt/sanity.xslt" force="true">
+			<classpath path="${classpath.saxon}"/>
+			<factory name="${xslt.factory}"/>
+		</xslt>
+	</target>
 	
 </project>
