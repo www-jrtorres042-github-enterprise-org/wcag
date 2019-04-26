@@ -44,6 +44,7 @@
 		<delete file="${inputdir.techniques}/technique-associations.xml" failonerror="false"/>
 		<delete file="output.html" failonerror="false"/>
 		<delete dir="output" failonerror="false"/>
+		<delete file="sanity.html" failonerror="false"/>
 	</target>
 	
 	<target name="flatten" depends="init" description="Build a copy of guidelines with all data-include files incorporated">
