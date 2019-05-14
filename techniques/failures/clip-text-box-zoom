@@ -42,13 +42,18 @@
 			<section class="test-procedure">
 				<h3>Procedure</h3>
 				<ol>
-					<li>Step 1</li>
-				</ol>
+     <li>Set the page zoom to 100% (default text size)</li>
+     <li>Increase line height (line spacing) to at least 1.5 times the font size;</li>
+     <li>Increase spacing following paragraphs to at least 2 times the font size;</li>
+     <li>Increase letter spacing (tracking) to at least 0.12 times the font size;</li>
+     <li>Increase word spacing to at least 0.16 times the font size.</li>
+   </ul>
+   <p>Note these changes can be implemented using a plugin such as Stylus.</p>
 			</section>
 			<section class="test-results">
 				<h3>Expected Results</h3>
 				<ul>
-					<li>Result</li>
+					<li>If any of the above actions create clipped text where the meaning of the content is not provided by other means, then the success criteria has been failed</li>
 				</ul>
 			</section>
 		</section>
