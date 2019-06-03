@@ -62,6 +62,10 @@
 		</xslt>
 	</target>
 	
+	<target name="guidelines" depends="init">
+		<curl ></curl>
+	</target>
+	
 	<!-- Techniques -->
 	<target name="techniques-list" description="Create XML list of all the technique files">
 		<property name="output.file" value="${inputdir.techniques}/techniques.xml"/>
