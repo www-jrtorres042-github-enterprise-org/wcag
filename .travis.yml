@@ -13,7 +13,7 @@ before_install:
 script:
   - mkdir output
   - git clone --depth=1 --branch=gh-pages https://github.com/w3c/wcag.git output
-  - ant deploy
+  - ant guidelines
 
 deploy:
   provider: pages
