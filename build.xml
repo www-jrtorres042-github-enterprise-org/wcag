@@ -68,7 +68,8 @@
 			<arg value="&quot;https://labs.w3.org/spec-generator/?type=respec&amp;url=https://raw.githack.com/w3c/wcag/master/guidelines/index.html&quot;"/>
 			<arg value="-o output/guidelines/22/index.html"/>
 			<arg value="-f"/>
-			<arg value="--retry 3"/>
+			<arg value="--retry"/>
+			<arg value="3"/>
 		</exec>
 	</target>
 	
