@@ -232,6 +232,7 @@
 	<!-- Publish -->
 	<target name="deploy" depends="init, understanding-toc, techniques-toc" description="Generate content ready to deploy to gh-pages">
 		<property name="editors" value="true"/>
+		<antcall target="guidelines"/>
 		<antcall target="techniques"/>
 		<antcall target="understanding"/>
 		<copy todir="output/working-examples/">
