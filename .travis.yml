@@ -8,7 +8,7 @@ git:
   
 before_install:
   - tar -xzvf lib/apache-ant-1.10.6-bin.tar.gz
-  - export PATH=`pwd`/lib/apache-ant-1.10.6/bin:$PATH
+  - export PATH=`pwd`/apache-ant-1.10.6/bin:$PATH
 
 script:
   - mkdir output
