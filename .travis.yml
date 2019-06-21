@@ -6,12 +6,8 @@ env:
 git:
   depth: 3
   
-addons:
-  apt:
-    packages:
-      - libssl1.0.0
-      
 before_install:
+  - sudo apt-get update
   - tar -xzvf lib/apache-ant-1.10.6-bin.tar.gz
   - export PATH=`pwd`/apache-ant-1.10.6/bin:$PATH
 
