@@ -8,6 +8,7 @@ git:
   
 before_install:
   - sudo apt-get update
+  - sudo apt-get install curl
   - tar -xzvf lib/apache-ant-1.10.6-bin.tar.gz
   - export PATH=`pwd`/apache-ant-1.10.6/bin:$PATH
 
