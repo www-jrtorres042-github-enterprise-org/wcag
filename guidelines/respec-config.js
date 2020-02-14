@@ -8,10 +8,10 @@ var respecConfig = {
 	permalinkHide:     false,
 	tocIntroductory: true,
 	// specification status (e.g., WD, LC, NOTE, etc.). If in doubt use ED.
-	specStatus:           "ED",
+	specStatus:           "FPWD",
 	//crEnd:                "2012-04-30",
 	//perEnd:               "2013-07-23",
-	//publishDate:          "2013-08-22",
+	publishDate:          "2020-02-25",
 	diffTool:             "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 	
 	// the specifications short name, as in https://www.w3.org/TR/short-name/
