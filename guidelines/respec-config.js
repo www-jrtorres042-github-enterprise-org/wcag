@@ -27,7 +27,7 @@ var respecConfig = {
 	// and its maturity status
 	previousPublishDate:  "2020-02-27",
 	previousMaturity:  "FPWD",
-	prevRecURI: "https://www.w3.org/TR/2018/REC-WCAG21-20180605/",
+	prevRecURI: "https://www.w3.org/TR/WCAG/",
 	//previousDiffURI: "https://www.w3.org/TR/2014/REC-wai-aria-20140320/",
 	
 	// if there a publicly available Editors Draft, this is the link
