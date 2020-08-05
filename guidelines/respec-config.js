@@ -8,7 +8,7 @@ var respecConfig = {
 	permalinkHide:     false,
 	tocIntroductory: true,
 	// specification status (e.g., WD, LC, NOTE, etc.). If in doubt use ED.
-	specStatus:           "ED",
+	specStatus:           "WD",
 	//crEnd:                "2012-04-30",
 	//perEnd:               "2013-07-23",
 	//publishDate:          "2013-08-22",
@@ -25,8 +25,8 @@ var respecConfig = {
 	
 	// if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
 	// and its maturity status
-	//previousPublishDate:  "2014-06-12",
-	//previousMaturity:  "WD",
+	previousPublishDate:  "2020-02-27",
+	previousMaturity:  "FPWD",
 	prevRecURI: "https://www.w3.org/TR/2018/REC-WCAG21-20180605/",
 	//previousDiffURI: "https://www.w3.org/TR/2014/REC-wai-aria-20140320/",
 	
@@ -39,14 +39,6 @@ var respecConfig = {
 	// editors, add as many as you like
 	// only "name" is required
 	editors: [
-		{
-			name: "Andrew Kirkpatrick",
-			url: "http://www.adobe.com/",
-			mailto: "akirkpat@adobe.com",
-			company: "Adobe",
-			companyURI: "http://www.adobe.com/",
-			w3cid: 39770
-		},
 		{
 			name: "Alastair Campbell",
 			url: "https://www.nomensa.com/",
@@ -62,6 +54,14 @@ var respecConfig = {
 			company: "W3C",
 			companyURI: "https://www.w3.org",
 			w3cid: 34017
+		},
+		{
+			name: "Andrew Kirkpatrick",
+			url: "http://www.adobe.com/",
+			mailto: "akirkpat@adobe.com",
+			company: "Adobe",
+			companyURI: "http://www.adobe.com/",
+			w3cid: 39770
 		}
 	],
 	formerEditors: [
