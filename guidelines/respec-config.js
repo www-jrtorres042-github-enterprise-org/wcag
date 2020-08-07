@@ -64,6 +64,7 @@ var respecConfig = {
 			w3cid: 39770
 		}
 	],
+	/* 
 	formerEditors: [
 		{
 			name: "Ben Caldwell",
@@ -101,6 +102,7 @@ var respecConfig = {
 			w3cid: 41218
 		}
 	],
+	*/
 	
 	// authors, add as many as you like.
 	// This is optional, uncomment if you have authors as well as editors.
