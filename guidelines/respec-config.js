@@ -40,12 +40,26 @@ var respecConfig = {
 	// only "name" is required
 	editors: [
 		{
+			name: "Chuck Adams",
+			url: "https://www.oracle.com/",
+			mailto: "charles.adams@oracle.com",
+			company: "Oracle",
+			companyURI: "https://www.oracle.com/",
+			w3cid: 104852
+		},
+		{
 			name: "Alastair Campbell",
 			url: "https://www.nomensa.com/",
 			mailto: "acampbell@nomensa.com",
 			company: "Nomensa",
 			companyURI: "https://www.nomensa.com/",
 			w3cid: 44689
+		},
+		{
+			name: "Rachael Montgomery",
+			mailto: "rachael@accessiblecommunity.org",
+			company: "Invited Expert",
+			w3cid: 90310
 		},
 		{
 			name: "Michael Cooper",
