@@ -139,6 +139,7 @@ var respecConfig = {
 	
 	// name of the WG
 	group:           "ag",
+	github: "w3c/wcag",
 
 	maxTocLevel: 4,
 	
