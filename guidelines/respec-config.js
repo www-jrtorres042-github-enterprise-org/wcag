@@ -11,7 +11,7 @@ var respecConfig = {
 	specStatus:           "WD",
 	//crEnd:                "2012-04-30",
 	//perEnd:               "2013-07-23",
-	publishDate:          "2021-05-13",
+	publishDate:          "2021-05-21",
 	diffTool:             "http://www.aptest.com/standards/htmldiff/htmldiff.pl",
 	
 	// the specifications short name, as in https://www.w3.org/TR/short-name/
@@ -25,7 +25,7 @@ var respecConfig = {
 	
 	// if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
 	// and its maturity status
-	previousPublishDate:  "2020-08-11",
+	previousPublishDate:  "2021-05-13",
 	previousMaturity:  "WD",
 	prevRecURI: "https://www.w3.org/TR/WCAG/",
 	//previousDiffURI: "https://www.w3.org/TR/2014/REC-wai-aria-20140320/",
@@ -41,7 +41,7 @@ var respecConfig = {
 	editors: [
 		{
 			name: "Chuck Adams",
-			url: "https://www.oracle.com/",
+			//url: "https://www.oracle.com/",
 			mailto: "charles.adams@oracle.com",
 			company: "Oracle",
 			companyURI: "https://www.oracle.com/",
@@ -49,7 +49,7 @@ var respecConfig = {
 		},
 		{
 			name: "Alastair Campbell",
-			url: "https://www.nomensa.com/",
+			//url: "https://www.nomensa.com/",
 			mailto: "acampbell@nomensa.com",
 			company: "Nomensa",
 			companyURI: "https://www.nomensa.com/",
@@ -63,15 +63,15 @@ var respecConfig = {
 		},
 		{
 			name: "Michael Cooper",
-			url: 'https://www.w3.org',
-			mailto: "cooper@w3.org",
+			url: 'https://www.w3.org/People/cooper/',
+			//mailto: "cooper@w3.org",
 			company: "W3C",
 			companyURI: "https://www.w3.org",
 			w3cid: 34017
 		},
 		{
 			name: "Andrew Kirkpatrick",
-			url: "http://www.adobe.com/",
+			//url: "http://www.adobe.com/",
 			mailto: "akirkpat@adobe.com",
 			company: "Adobe",
 			companyURI: "http://www.adobe.com/",
